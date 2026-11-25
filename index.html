@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>World in a Day — Wednesday 25 November 2026</title>
+<style>
+  @page { size: 1024px 1024px; margin: 0; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1024px; height: 1024px; }
+  body {
+    font-family: 'Liberation Serif', serif;
+    background: #f8f3e7; color: #1d1a16;
+    -weasy-hyphens: none;
+  }
+  .page { width: 1024px; height: 1024px; padding: 10px 22px 8px; overflow: hidden; }
+  .crimson { color: #9b1c20; }
+  .sans { font-family: 'Liberation Sans', sans-serif; }
+
+  /* ---------- masthead ---------- */
+  .topbar {
+    display: flex; justify-content: space-between;
+    font-family: 'Liberation Sans', sans-serif; font-size: 9.5px; font-weight: bold;
+    letter-spacing: 2.2px; text-transform: uppercase;
+    border-bottom: 2.5px solid #1d1a16; padding-bottom: 3px;
+  }
+  .masthead {
+    text-align: center; font-weight: bold; font-size: 42px; line-height: 1;
+    letter-spacing: 1px; padding: 5px 0 3px;
+  }
+  .masthead .amp { color: #9b1c20; }
+  .dateline {
+    display: flex; justify-content: center; gap: 14px;
+    font-family: 'Liberation Sans', sans-serif; font-size: 12px; font-weight: bold;
+    letter-spacing: 1.4px; text-transform: uppercase;
+    border-top: 1px solid #1d1a16; border-bottom: 2.5px solid #1d1a16;
+    padding: 4px 0 4px; margin-bottom: 5px;
+  }
+  .dateline .n { color: #9b1c20; }
+
+  /* ---------- heroes ---------- */
+  .heroes { display: flex; gap: 12px; }
+  .hero { width: 320px; border-right: 1px solid #c9bfa5; padding-right: 11px; }
+  .hero:last-child { border-right: none; padding-right: 0; }
+  .hero img { width: 100%; height: 72px; object-fit: cover; display: block; }
+  .hero img.riyadh { object-position: center 32%; }
+  .kicker {
+    font-family: 'Liberation Sans', sans-serif; font-size: 9px; font-weight: bold;
+    letter-spacing: 1.6px; text-transform: uppercase; color: #9b1c20; margin-top: 4px;
+  }
+  .hero h2 { font-size: 14.5px; line-height: 1.12; margin: 1px 0 3px; }
+  .hero p { font-size: 9.8px; line-height: 1.3; }
+  .caption {
+    font-family: 'Liberation Sans', sans-serif; font-size: 8px; color: #6d6353;
+    font-style: italic; margin-top: 3px;
+  }
+
+  /* ---------- tiles ---------- */
+  .tiles {
+    display: flex; flex-wrap: wrap; gap: 0 12px;
+    border-top: 2.5px solid #1d1a16; margin-top: 5px; padding-top: 5px;
+  }
+  .tile { width: 320px; border-right: 1px solid #c9bfa5; padding: 0 11px 6px 0; }
+  .tile:nth-child(3n) { border-right: none; padding-right: 0; }
+  .tile:nth-child(n+4) { border-top: 1px solid #c9bfa5; padding-top: 5px; }
+  .tile h3 { font-size: 12px; line-height: 1.15; margin: 2px 0 2px; }
+  .tile p { font-size: 9.2px; line-height: 1.25; }
+
+  /* ---------- briefs ---------- */
+  .briefs {
+    display: flex; flex-wrap: wrap; gap: 0 12px;
+    border-top: 2.5px solid #1d1a16; margin-top: 2px; padding-top: 4px;
+  }
+  .brief { width: 484px; padding-bottom: 4px; }
+  .brief h4 { font-size: 10.8px; line-height: 1.15; }
+  .brief h4 .num { color: #9b1c20; }
+  .brief p { font-size: 9.2px; line-height: 1.25; }
+
+  /* ---------- timeline ---------- */
+  .timeline {
+    border-top: 2.5px solid #1d1a16; border-bottom: 1px solid #1d1a16;
+    margin-top: 2px; padding: 3px 0;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .timeline .tlabel {
+    font-family: 'Liberation Sans', sans-serif; font-size: 10px; font-weight: bold;
+    letter-spacing: 1.4px; color: #9b1c20; white-space: nowrap;
+  }
+  .timeline .slot { font-size: 9.3px; line-height: 1.25; border-left: 1px solid #c9bfa5; padding-left: 10px; }
+  .timeline .slot b { font-family: 'Liberation Sans', sans-serif; font-size: 9px; }
+
+  /* ---------- numbers panel ---------- */
+  .numbers {
+    background: #1d1a16; color: #f8f3e7; margin-top: 5px; padding: 5px 10px 6px;
+    display: flex;
+  }
+  .numbers .nlabel {
+    font-family: 'Liberation Sans', sans-serif; font-size: 9px; font-weight: bold;
+    letter-spacing: 1.4px; color: #b9f73c; width: 88px; flex-shrink: 0;
+    display: flex; align-items: center;
+  }
+  .numcell { flex: 1; text-align: center; border-left: 1px solid #4a4438; padding: 0 4px; }
+  .numcell .v { font-size: 17px; font-weight: bold; line-height: 1.1; }
+  .numcell .v.small { font-size: 13.5px; line-height: 1.35; }
+  .numcell .l {
+    font-family: 'Liberation Sans', sans-serif; font-size: 7.2px; letter-spacing: 0.6px;
+    text-transform: uppercase; color: #cfc6b2; line-height: 1.25; margin-top: 2px;
+  }
+
+  /* ---------- map ---------- */
+  .mapblock { margin-top: 5px; }
+  .maphead {
+    font-family: 'Liberation Sans', sans-serif; font-size: 10px; font-weight: bold;
+    letter-spacing: 1.4px; text-transform: uppercase; margin-bottom: 1px;
+  }
+  .maphead span { color: #9b1c20; }
+  .maplegend {
+    font-family: 'Liberation Sans', sans-serif; font-size: 8.5px; color: #3d372c;
+    margin-top: 1px; text-align: center;
+  }
+  .maplegend b { color: #9b1c20; }
+
+  /* ---------- date check ---------- */
+  .datecheck { border: 1.5px solid #9b1c20; margin-top: 5px; padding: 4px 10px 5px; }
+  .datecheck h5 {
+    font-family: 'Liberation Sans', sans-serif; font-size: 10.5px; font-weight: bold;
+    letter-spacing: 1.4px; color: #9b1c20; text-transform: uppercase; margin-bottom: 3px;
+  }
+  .dcgrid { display: flex; flex-wrap: wrap; gap: 2px 16px; }
+  .dcitem { width: 466px; font-size: 9.3px; line-height: 1.25; }
+  .dcitem b { font-family: 'Liberation Sans', sans-serif; font-size: 9px; }
+
+  /* ---------- footer ---------- */
+  .footer {
+    border-top: 2.5px solid #1d1a16; margin-top: 5px; padding-top: 3px;
+    font-family: 'Liberation Sans', sans-serif; font-size: 8px; line-height: 1.35; color: #3d372c;
+    text-align: center;
+  }
+  .footer .disc { font-style: italic; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="topbar"><span>One day &middot; one page</span><span>Wednesday edition</span><span>No other day</span></div>
+  <div class="masthead">WORLD <span class="amp">IN A</span> DAY</div>
+  <div class="dateline">
+    <span>Wednesday 25 November 2026</span><span class="n">&bull;</span>
+    <span>15 stories</span><span class="n">&bull;</span>
+    <span>All verified for 25 Nov 2026</span>
+  </div>
+
+  <div class="heroes">
+    <div class="hero">
+      <img class="riyadh" src="img/riyadh.jpg" alt="PIF Tower, Riyadh">
+      <div class="kicker">Middle East &middot; Riyadh</div>
+      <h2>Drone hits Riyadh&rsquo;s tallest tower again</h2>
+      <p>Houthi fighters struck the 385&nbsp;m PIF Tower &mdash; home of the Saudi sovereign wealth fund &mdash; for the second time in under a week. Eleven were hurt: four Egyptians, three Nepalis, two Indians and two Saudis. The tower was first hit on 19&nbsp;Nov, with no injuries; the coalition vowed a decisive response.</p>
+      <div class="caption">Illustration &mdash; the PIF Tower, Riyadh</div>
+    </div>
+    <div class="hero">
+      <img src="img/courthouse.jpg" alt="US federal courthouse">
+      <div class="kicker">United States &middot; Brooklyn</div>
+      <h2>Huawei guilty on 10 of 12 counts</h2>
+      <p>A Brooklyn jury convicted Huawei of bank fraud, wire fraud, Iran sanctions violations, trade-secret theft conspiracy and money laundering. It cleared the firm of racketeering and obstruction. The 11-week trial heard 60+ prosecution witnesses in a case opened in 2018. Sentencing is set for 14&nbsp;September 2027. Huawei will appeal.</p>
+      <div class="caption">Illustration &mdash; a US federal courthouse</div>
+    </div>
+    <div class="hero">
+      <img src="img/rocket.jpg" alt="Rocket launch">
+      <div class="kicker">Space &middot; Jiuquan, China</div>
+      <h2>Shenzhou-24 lifts off with Pakistan&rsquo;s first astronaut</h2>
+      <p>Shenzhou-24 launched at 00:18:52&nbsp;UTC from Jiuquan on a Long March&nbsp;2F, carrying Tang Hongbo, Wu&nbsp;Yi and Muhammad Zeeshan Ali, 40. Ali is the first Pakistani in orbit and the first foreign astronaut aboard China&rsquo;s Tiangong station. The crew will stay 5&ndash;10 days to run experiments.</p>
+      <div class="caption">Illustration &mdash; a rocket launch</div>
+    </div>
+  </div>
+
+  <div class="tiles">
+    <div class="tile">
+      <div class="kicker">Markets &middot; New York</div>
+      <h3>Dow tops 50,000 as Nvidia slides</h3>
+      <p>The Dow closed at 50,018.70, up 423.39 (+0.85%). The S&amp;P&nbsp;500 fell 0.50% to 7,201.09 and the Nasdaq 1.48% to 23,733.54. Nvidia dropped 5.86% to $155.38 a day after jumping 31%. Dell revenue hit $54.94bn, up 103% on the year, on an AI server backlog of $132.3bn.</p>
+    </div>
+    <div class="tile">
+      <div class="kicker">Ukraine &middot; Gulf of Finland</div>
+      <h3>Zelenskyy admits Ukraine hit Russian ship</h3>
+      <p>President Volodymyr Zelenskyy confirmed Ukraine&rsquo;s drone strike on the Russian cargo ship Sparta&nbsp;II, saying it carried weapons and was a legitimate target. The ship caught fire, drifted into Finnish waters and was towed to St&nbsp;Petersburg on Sunday. Norway urged caution.</p>
+    </div>
+    <div class="tile">
+      <div class="kicker">China &middot; Shanghai</div>
+      <h3>Shanghai party chief under probe</h3>
+      <p>Chen Jining, 62, Shanghai party chief and Politburo member, is under investigation for suspected serious discipline and law violations. He is the fourth Politburo member probed since 2025 and the first Shanghai chief probed since 2006. On Wednesday Shanghai&rsquo;s leadership pledged loyalty to Beijing.</p>
+    </div>
+    <div class="tile">
+      <div class="kicker">United States &middot; Cyber</div>
+      <h3>CIA and ODNI hit by cyberattack</h3>
+      <p>CNN reported on 25&nbsp;Nov that the CIA and the Office of the Director of National Intelligence appear to have been hit by a cyberattack touching unclassified information. It is the latest in a run of US government and private-sector breaches, and is not linked to the FBI database attack.</p>
+    </div>
+    <div class="tile">
+      <div class="kicker">France &middot; Paris</div>
+      <h3>Sarkozy and Bruni ordered to trial</h3>
+      <p>French officials ordered the corruption case against former president Nicolas Sarkozy and his wife Carla Bruni to go to trial. The first pre-trial hearing is set for 1&nbsp;April 2027.</p>
+    </div>
+    <div class="tile">
+      <div class="kicker">United States &middot; Washington</div>
+      <h3>Trump gives Giuliani the Medal of Freedom</h3>
+      <p>President Donald Trump awarded the Presidential Medal of Freedom &mdash; the highest US civilian honour &mdash; to former New York mayor Rudy Giuliani, 82, in a closed Oval Office ceremony. He is the third recipient of Trump&rsquo;s second term. Giuliani was fined $148m in 2023 for defaming two Georgia election workers.</p>
+    </div>
+  </div>
+
+  <div class="briefs">
+    <div class="brief">
+      <h4><span class="num">10 &middot;</span> Israeli strike kills Hamas security chief in Gaza</h4>
+      <p>An Israeli air strike in western Gaza City killed Naeem Abu Nahel, 50, Hamas&rsquo;s internal security director. Seven people were killed on Tuesday, including two police officers. UNRWA worker Adel al-Helo, a 35-year veteran, died in Jabalia camp.</p>
+    </div>
+    <div class="brief">
+      <h4><span class="num">11 &middot;</span> Poland to summon Russia&rsquo;s envoy</h4>
+      <p>Poland plans to summon Russia&rsquo;s ambassador after three Russian missiles violated its airspace. On Wednesday a Polish official warned that expelling the envoy could risk an &ldquo;outbreak of war&rdquo;.</p>
+    </div>
+    <div class="brief">
+      <h4><span class="num">12 &middot;</span> Houthis 60&nbsp;km from Aden, army says</h4>
+      <p>Yemen&rsquo;s military said Houthi forces have advanced to within 60&nbsp;km of Aden, the temporary capital of the internationally recognised government, but will not take the city.</p>
+    </div>
+    <div class="brief">
+      <h4><span class="num">13 &middot;</span> Landmine toll highest in five years</h4>
+      <p>Landmines and explosive remnants killed or injured at least 6,929 people in 2025, up 10% and the highest since 2020. Myanmar had the most victims, 1,891; Syria had 1,602, up more than 50%. 84% of victims were civilians, half of them children.</p>
+    </div>
+    <div class="brief">
+      <h4><span class="num">14 &middot;</span> WHO pulls Ebola team from Congo hospital</h4>
+      <p>WHO chief Tedros said health workers were evacuated from a hospital in Akwe, Ituri, after sheltering three days from heavy fighting. The DRC outbreak has killed 5,775 of 11,762 cases &mdash; the worst recorded in the country.</p>
+    </div>
+    <div class="brief">
+      <h4><span class="num">15 &middot;</span> Kyiv calls Libya ship strikes self-defence</h4>
+      <p>Zelenskyy said Ukraine struck two Russian ships off Libya: the corvette Merkury sank with a Ka-27 helicopter, and the cargo ship Angara was also hit. The strikes took place on 21&ndash;22&nbsp;Nov.</p>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="tlabel">The day in UTC</div>
+    <div class="slot"><b>00:18 UTC</b> &mdash; Shenzhou-24 lifts off from Jiuquan</div>
+    <div class="slot"><b>02:13</b> &mdash; Poland warns expelling Russia&rsquo;s envoy could risk war</div>
+    <div class="slot"><b>25 Nov</b> &mdash; Shanghai leadership pledges loyalty to Beijing</div>
+    <div class="slot"><b>25 Nov</b> &mdash; WHO evacuates Ebola team from Akwe hospital</div>
+  </div>
+
+  <div class="numbers">
+    <div class="nlabel">The day<br>in numbers</div>
+    <div class="numcell"><div class="v">11</div><div class="l">Hurt in Riyadh tower strike</div></div>
+    <div class="numcell"><div class="v small">10 of 12</div><div class="l">Huawei counts guilty</div></div>
+    <div class="numcell"><div class="v small">50,018.70</div><div class="l">Dow close, Tuesday</div></div>
+    <div class="numcell"><div class="v small">00:18 UTC</div><div class="l">Shenzhou-24 liftoff</div></div>
+    <div class="numcell"><div class="v">6,929</div><div class="l">Landmine victims in 2025</div></div>
+    <div class="numcell"><div class="v">60 km</div><div class="l">Houthis from Aden</div></div>
+    <div class="numcell"><div class="v small">$54.94bn</div><div class="l">Dell revenue, +103%</div></div>
+    <div class="numcell"><div class="v">7</div><div class="l">Killed in Gaza on Tuesday</div></div>
+  </div>
+
+  <div class="mapblock">
+    <div class="maphead">Where it happened <span>&mdash; schematic map, not to scale</span></div>
+    <svg width="980" height="56" viewBox="0 0 980 56" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#d9cfb6" stroke="#8a7f68" stroke-width="0.7">
+        <ellipse cx="150" cy="18" rx="120" ry="15"/>
+        <ellipse cx="258" cy="42" rx="30" ry="12" transform="rotate(-18 258 42)"/>
+        <ellipse cx="300" cy="7" rx="16" ry="5"/>
+        <ellipse cx="498" cy="14" rx="28" ry="9"/>
+        <ellipse cx="508" cy="39" rx="42" ry="18" transform="rotate(-8 508 39)"/>
+        <ellipse cx="705" cy="17" rx="155" ry="13"/>
+        <ellipse cx="600" cy="36" rx="24" ry="9" transform="rotate(12 600 36)"/>
+        <ellipse cx="692" cy="35" rx="15" ry="7" transform="rotate(18 692 35)"/>
+        <ellipse cx="752" cy="36" rx="15" ry="5" transform="rotate(28 752 36)"/>
+        <ellipse cx="850" cy="46" rx="32" ry="8"/>
+      </g>
+      <g font-family="Liberation Sans, sans-serif" font-size="7" font-weight="bold" text-anchor="middle">
+        <g><circle cx="596" cy="34" r="6.5" fill="#9b1c20"/><text x="596" y="36.5" fill="#f8f3e7">1</text></g>
+        <g><circle cx="236" cy="21" r="6.5" fill="#9b1c20"/><text x="236" y="23.5" fill="#f8f3e7">2</text></g>
+        <g><circle cx="750" cy="20" r="6.5" fill="#9b1c20"/><text x="750" y="22.5" fill="#f8f3e7">3</text></g>
+        <g><circle cx="248" cy="28" r="6.5" fill="#9b1c20"/><text x="248" y="30.5" fill="#f8f3e7">4</text></g>
+        <g><circle cx="530" cy="7" r="6.5" fill="#9b1c20"/><text x="530" y="9.5" fill="#f8f3e7">5</text></g>
+        <g><circle cx="800" cy="25" r="6.5" fill="#9b1c20"/><text x="800" y="27.5" fill="#f8f3e7">6</text></g>
+        <g><circle cx="228" cy="38" r="6.5" fill="#9b1c20"/><text x="228" y="40.5" fill="#f8f3e7">7</text></g>
+        <g><circle cx="490" cy="20" r="6.5" fill="#9b1c20"/><text x="490" y="22.5" fill="#f8f3e7">8</text></g>
+        <g><circle cx="216" cy="30" r="6.5" fill="#9b1c20"/><text x="216" y="32.5" fill="#f8f3e7">9</text></g>
+        <g><circle cx="570" cy="29" r="6.5" fill="#9b1c20"/><text x="570" y="31.5" fill="#f8f3e7">10</text></g>
+        <g><circle cx="514" cy="18" r="6.5" fill="#9b1c20"/><text x="514" y="20.5" fill="#f8f3e7">11</text></g>
+        <g><circle cx="612" cy="46" r="6.5" fill="#9b1c20"/><text x="612" y="48.5" fill="#f8f3e7">12</text></g>
+        <g><circle cx="750" cy="36" r="6.5" fill="#9b1c20"/><text x="750" y="38.5" fill="#f8f3e7">13</text></g>
+        <g><circle cx="534" cy="50" r="6.5" fill="#9b1c20"/><text x="534" y="52.5" fill="#f8f3e7">14</text></g>
+        <g><circle cx="496" cy="40" r="6.5" fill="#9b1c20"/><text x="496" y="42.5" fill="#f8f3e7">15</text></g>
+      </g>
+    </svg>
+    <div class="maplegend"><b>1</b> Riyadh &middot; <b>2</b> Brooklyn &middot; <b>3</b> Jiuquan &middot; <b>4</b> New York &middot; <b>5</b> Gulf of Finland &middot; <b>6</b> Shanghai &middot; <b>7</b> Washington &middot; <b>8</b> Paris &middot; <b>9</b> Oval Office &middot; <b>10</b> Gaza &middot; <b>11</b> Poland &middot; <b>12</b> Aden &middot; <b>13</b> Myanmar &middot; <b>14</b> Ituri &middot; <b>15</b> Libya</div>
+  </div>
+
+  <div class="datecheck">
+    <h5>Date check &mdash; left out, not 25 Nov</h5>
+    <div class="dcgrid">
+      <div class="dcitem"><b>COP31 ended with no deal</b> &mdash; Sun 22 Nov, Antalya; EU walked out over a text with no fossil fuels.</div>
+      <div class="dcitem"><b>Nepal quake, Taplejung</b> &mdash; 24 Nov (5.6 local / 5.3 EMSC-USGS).</div>
+      <div class="dcitem"><b>Three tankers hit by mines, Strait of Hormuz</b> &mdash; 24 Nov (IRGC claim, unverified).</div>
+      <div class="dcitem"><b>Nvidia reinstates Jensen Huang as CEO</b> &mdash; 24 Nov (+31% on Monday).</div>
+      <div class="dcitem"><b>ICJ ruling on Myanmar genocide</b> &mdash; 19 Nov.</div>
+      <div class="dcitem"><b>US loses measles-free status (PAHO)</b> &mdash; 17 Nov.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    Sources: Reuters &middot; Xinhua &middot; CNN &middot; Wall Street Journal &middot; Bloomberg &middot; Bloomberg Law &middot; International Campaign to Ban Landmines (ICBL) &middot; Associated Press &middot; AFP<br>
+    <span class="disc">Illustrations are AI-generated images, not photographs of the events. All stories verified for Wednesday 25 November 2026.</span><br>
+    WORLD IN A DAY &mdash; ONE DAY, ONE PAGE
+  </div>
+
+</div>
+</body>
+</html>
